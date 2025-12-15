@@ -1,4 +1,4 @@
-# DhanaRakshak - AI Powered Personal Finance Tracker
+<img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/7b7d0791-3dc2-4d0c-adde-5ee5f57c3940" /># DhanaRakshak - AI Powered Personal Finance Tracker
 
 A complete, production-ready AI-powered personal finance tracking application built with Flask, MySQL, and Machine Learning.
 
@@ -400,3 +400,5 @@ For technical support or questions:
 
 
 **Happy Financial Tracking! 💰📊**
+<img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/6386004b-4728-4aad-9f2f-0ab0d716617f" />
+
