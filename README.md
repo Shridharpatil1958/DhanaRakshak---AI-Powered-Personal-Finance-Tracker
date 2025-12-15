@@ -1,5 +1,3 @@
-<img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/7b7d0791-3dc2-4d0c-adde-5ee5f57c3940" /># DhanaRakshak - AI Powered Personal Finance Tracker
-
 A complete, production-ready AI-powered personal finance tracking application built with Flask, MySQL, and Machine Learning.
 
 ## 🎯 Features
@@ -160,57 +158,6 @@ The application will be available at: `http://localhost:5000`
   - Upcoming bills estimation
   - Anomaly detection results
 
-## 📁 Project Structure
-
-```
-dhanarakshak/
-├── app.py                          # Main Flask application
-├── config.py                       # Configuration settings
-├── requirements.txt                # Python dependencies
-├── README.md                       # This file
-│
-├── database/
-│   └── schema.sql                  # MySQL database schema
-│
-├── models/                         # Trained ML models (generated)
-│   ├── expense_predictor.pkl
-│   ├── savings_predictor.pkl
-│   ├── bills_estimator.pkl
-│   ├── anomaly_detector.pkl
-│   ├── budget_recommender.pkl
-│   └── *_encoder.pkl
-│
-├── ml/                            # ML training scripts
-│   ├── train_models.py            # Train all models
-│   ├── generate_dataset.py        # Generate synthetic data
-│   └── model_utils.py             # ML utility functions
-│
-├── routes/                        # Flask route handlers
-│   ├── __init__.py
-│   ├── auth.py                    # Authentication routes
-│   ├── upload.py                  # Data upload routes
-│   ├── dashboard.py               # Dashboard routes
-│   └── api.py                     # ML API endpoints
-│
-├── utils/                         # Utility functions
-│   ├── __init__.py
-│   ├── db_utils.py                # Database utilities
-│   ├── file_processor.py          # File processing
-│   └── ai_suggestions.py          # AI suggestion engine
-│
-├── templates/                     # HTML templates
-│   ├── base.html                  # Base template
-│   ├── register.html              # Registration page
-│   ├── login.html                 # Login page
-│   ├── upload.html                # Upload page
-│   └── dashboard.html             # Dashboard page
-│
-└── static/                        # Static files
-    ├── css/
-    │   └── style.css              # Custom styles
-    └── js/
-        └── dashboard.js           # Dashboard JavaScript
-```
 
 ## 🔒 Security Features
 
@@ -400,5 +347,13 @@ For technical support or questions:
 
 
 **Happy Financial Tracking! 💰📊**
-<img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/6386004b-4728-4aad-9f2f-0ab0d716617f" />
+<img width="1862" height="879" alt="Screenshot 2025-12-15 204245" src="https://github.com/user-attachments/assets/b3c7ba92-6bb3-4430-9572-731a2f8146df" />
+<img width="1870" height="917" alt="Screenshot 2025-12-15 204219" src="https://github.com/user-attachments/assets/cdb2f6b6-68ce-4153-af85-9218dd81e2ae" />
+<img width="1864" height="922" alt="Screenshot 2025-12-15 204311" src="https://github.com/user-attachments/assets/5b2e78f7-5d31-4a89-9134-82b8ca0c91fa" />
+<img width="1886" height="913" alt="Screenshot 2025-12-15 204334" src="https://github.com/user-attachments/assets/c86ea462-b23c-44ed-91e5-78449292673c" />
+<img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/cccfb3f3-b3fe-43a6-90bc-df046db3671d" />
+
+
+
+
 
