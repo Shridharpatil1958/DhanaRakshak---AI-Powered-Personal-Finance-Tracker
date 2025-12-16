@@ -1,5 +1,13 @@
 A complete, production-ready AI-powered personal finance tracking application built with Flask, MySQL, and Machine Learning.
 
+**Happy Financial Tracking! 💰📊**
+<img width="1862" height="879" alt="Screenshot 2025-12-15 204245" src="https://github.com/user-attachments/assets/b3c7ba92-6bb3-4430-9572-731a2f8146df" />
+<img width="1870" height="917" alt="Screenshot 2025-12-15 204219" src="https://github.com/user-attachments/assets/cdb2f6b6-68ce-4153-af85-9218dd81e2ae" />
+<img width="1864" height="922" alt="Screenshot 2025-12-15 204311" src="https://github.com/user-attachments/assets/5b2e78f7-5d31-4a89-9134-82b8ca0c91fa" />
+<img width="1886" height="913" alt="Screenshot 2025-12-15 204334" src="https://github.com/user-attachments/assets/c86ea462-b23c-44ed-91e5-78449292673c" />
+<img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/cccfb3f3-b3fe-43a6-90bc-df046db3671d" />
+
+
 ## 🎯 Features
 
 ### Core Functionality
@@ -346,12 +354,7 @@ For technical support or questions:
 5. Monitor ML model performance
 
 
-**Happy Financial Tracking! 💰📊**
-<img width="1862" height="879" alt="Screenshot 2025-12-15 204245" src="https://github.com/user-attachments/assets/b3c7ba92-6bb3-4430-9572-731a2f8146df" />
-<img width="1870" height="917" alt="Screenshot 2025-12-15 204219" src="https://github.com/user-attachments/assets/cdb2f6b6-68ce-4153-af85-9218dd81e2ae" />
-<img width="1864" height="922" alt="Screenshot 2025-12-15 204311" src="https://github.com/user-attachments/assets/5b2e78f7-5d31-4a89-9134-82b8ca0c91fa" />
-<img width="1886" height="913" alt="Screenshot 2025-12-15 204334" src="https://github.com/user-attachments/assets/c86ea462-b23c-44ed-91e5-78449292673c" />
-<img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/cccfb3f3-b3fe-43a6-90bc-df046db3671d" />
+
 
 
 
