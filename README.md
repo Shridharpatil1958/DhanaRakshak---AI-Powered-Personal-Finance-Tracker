@@ -333,30 +333,4 @@ Personalized insights and recommendations
 
 This project is created for educational and demonstration purposes.
 
-## 👥 Contributors
-
-DhanaRakshak Development Team
-
-## 📞 Support
-
-For technical support or questions:
-1. Check the troubleshooting section
-2. Review the documentation
-3. Check database and ML model setup
-
----
-
-**Note**: This is a production-ready application. Make sure to:
-1. Update database credentials before deployment
-2. Set strong SECRET_KEY in production
-3. Enable HTTPS for production deployment
-4. Regular database backups
-5. Monitor ML model performance
-
-
-
-
-
-
-
 
