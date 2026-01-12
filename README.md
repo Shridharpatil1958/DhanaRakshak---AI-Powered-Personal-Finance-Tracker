@@ -6,6 +6,7 @@ A complete, production-ready AI-powered personal finance tracking application bu
 <img width="1864" height="922" alt="Screenshot 2025-12-15 204311" src="https://github.com/user-attachments/assets/5b2e78f7-5d31-4a89-9134-82b8ca0c91fa" />
 <img width="1897" height="893" alt="Screenshot 2026-01-07 135508" src="https://github.com/user-attachments/assets/63190242-5263-40fd-b4b9-1e7974eecef7" />
 <img width="1890" height="908" alt="image" src="https://github.com/user-attachments/assets/c054d1e5-f3d2-4660-a3e4-e6b5795fee5f" />
+<img width="1912" height="916" alt="Screenshot 2026-01-08 143828" src="https://github.com/user-attachments/assets/d02086bf-7c5e-4484-8eb1-40d17cc317b7" />
 <img width="1886" height="913" alt="Screenshot 2025-12-15 204334" src="https://github.com/user-attachments/assets/c86ea462-b23c-44ed-91e5-78449292673c" />
 <img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/cccfb3f3-b3fe-43a6-90bc-df046db3671d" />
 
@@ -334,6 +335,7 @@ Personalized insights and recommendations
 ## 📄 License
 
 This project is created for educational and demonstration purposes.
+
 
 
 
