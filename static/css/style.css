@@ -1,0 +1,218 @@
+/* ======================================================
+   DhanaRakshak – CLEAN WHITE THEME (COMPACT NAVBAR)
+   Professional • Minimal • Modern
+   ====================================================== */
+
+:root {
+    --primary-color: #8b5cf6;
+    --primary-soft: rgba(139, 92, 246, 0.08);
+    --primary-gradient: linear-gradient(135deg, #8b5cf6, #ec4899);
+    --primary-glow: rgba(139, 92, 246, 0.3);
+
+    --success-color: #10b981;
+    --danger-color: #f43f5e;
+    --warning-color: #f59e0b;
+    --info-color: #06b6d4;
+
+    --bg-body: #f8f9fa;
+    --bg-card: #ffffff;
+    --bg-elevated: #ffffff;
+
+    --border-subtle: #e5e7eb;
+    --border-accent: #d1d5db;
+
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+
+    --shadow-soft: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-medium: 0 4px 12px rgba(0,0,0,0.12);
+    --shadow-strong: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* ================= BASE ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* ================= COMPACT NAVBAR ================= */
+.navbar {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    padding: 0.35rem 1rem !important;
+    min-height: 52px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Brand */
+.navbar-brand {
+    font-size: 1.25rem !important;
+    font-weight: 800;
+    color: #fff !important;
+    padding: 0 !important;
+    line-height: 1.1;
+}
+
+.navbar-brand i {
+    font-size: 1.1rem;
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+    color: rgba(255,255,255,0.95) !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem !important;
+    margin: 0 0.2rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff !important;
+}
+
+.navbar-nav .nav-link.active {
+    background: rgba(255,255,255,0.25);
+}
+
+/* Logout */
+.navbar-nav .nav-link.logout {
+    background: rgba(239,68,68,0.25);
+}
+
+.navbar-nav .nav-link.logout:hover {
+    background: rgba(239,68,68,0.35);
+}
+
+/* Mobile navbar */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.3rem 0.75rem !important;
+        min-height: 48px;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem !important;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.8rem;
+    }
+}
+
+/* ================= PAGE HEADER ================= */
+.page-header {
+    padding: 0.5rem 0;
+    margin-bottom: 0.75rem;
+}
+
+.page-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.page-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ================= CARDS ================= */
+.card {
+    border-radius: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+/* ================= STAT CARDS ================= */
+.stat-card {
+    border-radius: 14px;
+    padding: 0.9rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-strong);
+    border-color: var(--primary-color);
+}
+
+.stat-card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-soft);
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+    border-radius: 10px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: #fff;
+}
+
+/* ================= CHARTS ================= */
+.chart-container {
+    height: 240px;
+    padding: 0.75rem;
+}
+
+/* ================= AI BADGE ================= */
+.ai-badge {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.65rem;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+/* ================= UTILITIES ================= */
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
