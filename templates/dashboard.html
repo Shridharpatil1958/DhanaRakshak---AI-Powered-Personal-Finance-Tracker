@@ -1,0 +1,632 @@
+{% extends "base.html" %}
+{% block title %}Dashboard – DhanaRakshak{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard-white-theme.css') }}">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Layout container */
+.container-fluid {
+    padding: 0.5rem 1rem !important;
+    max-width: 100%;
+}
+
+/* Compact header */
+.page-header {
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+}
+
+.page-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.1rem;
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: 0.75rem;
+    color: #6b7280;
+    line-height: 1;
+}
+
+.page-title i {
+    color: #8b5cf6;
+} 
+
+/* Clear Data Button */
+.btn-clear-data {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    cursor: pointer;
+}
+
+.btn-clear-data:hover,
+.btn-clear-data:focus-visible {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btn-clear-data i {
+    font-size: 1rem;
+}
+
+/* KPI / Stat cards */
+.stat-card {
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(139, 92, 246, 0.12);
+    border-color: #8b5cf6;
+}
+
+.stat-card .card-body {
+    padding: 0.75rem !important;
+}
+
+.stat-card-icon {
+    font-size: 1.3rem;
+    margin-bottom: 0.35rem;
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin: 0.25rem 0;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    margin-bottom: 0.2rem;
+    line-height: 1;
+}
+
+.stat-meta {
+    font-size: 0.7rem;
+    color: #9ca3af;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Section headings */
+.section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1f2937;
+    line-height: 1;
+}
+
+.section-header {
+    margin-bottom: 0.5rem;
+}
+
+.mb-section {
+    margin-bottom: 0.75rem !important;
+}
+
+.g-3 {
+    --bs-gutter-y: 0.5rem;
+    --bs-gutter-x: 0.5rem;
+}
+
+/* AI badge */
+.ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));
+    border: 1.5px solid #8b5cf6;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8b5cf6;
+    line-height: 1;
+}
+
+.ai-badge i {
+    animation: pulse 2s ease-in-out infinite;
+    font-size: 0.7rem;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.15); }
+}
+
+/* Cards & charts */
+.card {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    overflow: hidden;
+    margin-bottom: 0;
+    background-color: #ffffff;
+}
+
+.chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.75rem;
+    background: linear-gradient(to right, #f9fafb, #ffffff);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.chart-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.chart-title i {
+    font-size: 0.8rem;
+    margin-right: 0.4rem;
+}
+
+.tag-pill {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+    border-radius: 999px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.card-body {
+    padding: 0.75rem;
+}
+
+.chart-container {
+    height: 170px;
+    position: relative;
+}
+
+/* Suggestions */
+.suggestions-wrapper {
+    max-height: 440px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.suggestion-card {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid #8b5cf6;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+}
+
+.suggestion-card:hover {
+    transform: translateX(3px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+.suggestion-card:last-child {
+    margin-bottom: 0;
+}
+
+.suggestion-card.high-priority {
+    border-left-color: #f43f5e;
+    background: linear-gradient(to right, rgba(244, 63, 94, 0.02), #ffffff);
+}
+
+.suggestion-card.medium-priority {
+    border-left-color: #f59e0b;
+    background: linear-gradient(to right, rgba(245, 158, 11, 0.02), #ffffff);
+}
+
+.suggestion-card.low-priority {
+    border-left-color: #06b6d4;
+    background: linear-gradient(to right, rgba(6, 182, 212, 0.02), #ffffff);
+}
+
+.suggestion-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.suggestion-card p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #4b5563;
+    margin: 0;
+}
+
+.suggestion-card strong {
+    font-size: 0.85rem;
+    color: #1f2937;
+}
+
+.suggestion-card small {
+    font-size: 0.65rem;
+    color: #9ca3af;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.empty-state-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 0.75rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: rgba(139, 92, 246, 0.1);
+    border: 2px solid #e5e7eb;
+    color: #8b5cf6;
+}
+
+.empty-state h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.empty-state p {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Grid layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+/* Scrollbar */
+.suggestions-wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+.suggestions-wrapper::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 10px;
+}
+
+.suggestions-wrapper::-webkit-scrollbar-thumb {
+    background: #8b5cf6;
+    border-radius: 10px;
+}
+
+.suggestions-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .suggestions-wrapper {
+        max-height: 300px;
+    }
+}
+
+/* Text gradient */
+.text-gradient {
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Tighten row / col spacing */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col-6, .col-lg-3 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid fade-in">
+
+    <!-- PAGE HEADER -->
+    <header class="page-header" aria-label="Financial dashboard header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="page-title">
+                    <i class="fas fa-chart-line me-2" aria-hidden="true"></i>
+                    Financial Dashboard
+                </h1>
+                <p class="page-subtitle mb-0">
+                    Your income, expenses & AI insights — all in one place
+                </p>
+            </div>
+            <button
+                type="button"
+                class="btn-clear-data"
+                onclick="clearUserData()"
+                aria-label="Clear all your financial data"
+            >
+                <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                <span>Clear Data</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- KPI CARDS -->
+    <section class="row g-3 mb-section" aria-label="Key financial metrics">
+        {% set cards = [
+            ('primary','wallet','Total Income',stats.total_income,'All time earnings'),
+            ('danger','receipt','Total Expenses',stats.total_expense,'All time spending'),
+            ('success','piggy-bank','Total Savings',stats.total_savings, stats.savings_rate|string + '% savings rate'),
+            ('warning','calendar-week','This Month',stats.current_month_expense,'Current month expenses')
+        ] %}
+
+        {% for color,icon,title,value,meta in cards %}
+        <div class="col-6 col-lg-3">
+            <article class="card stat-card" aria-label="{{ title }}">
+                <div class="card-body">
+                    <div class="stat-card-icon text-{{ color }}">
+                        <i class="fas fa-{{ icon }}" aria-hidden="true"></i>
+                    </div>
+                    <div class="stat-label">{{ title }}</div>
+                    <div class="stat-value">₹{{ "{:,.0f}".format(value) }}</div>
+                    <div class="stat-meta">{{ meta }}</div>
+                </div>
+            </article>
+        </div>
+        {% endfor %}
+    </section>
+
+    <!-- AI PROJECTIONS -->
+    <section class="mb-section" aria-label="AI projections">
+        <div class="d-flex align-items-center gap-2 section-header">
+            <h2 class="section-title">AI Projections</h2>
+            <span class="ai-badge" aria-label="AI powered insights">
+                <i class="fas fa-robot" aria-hidden="true"></i>
+                Powered by AI
+            </span>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-6">
+                <article class="card stat-card" aria-label="Next month prediction">
+                    <div class="card-body">
+                        <div class="stat-card-icon text-info">
+                            <i class="fas fa-brain" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-label">Next Month Prediction</div>
+                        <div class="stat-value">₹{{ "{:,.0f}".format(stats.current_month_expense) }}</div>
+                        <div class="stat-meta">AI-based expense forecast</div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-6">
+                <article class="card stat-card" aria-label="Savings goal">
+                    <div class="card-body">
+                        <div class="stat-card-icon text-success">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <div class="stat-label">Savings Goal</div>
+                        <div class="stat-value">{{ "{:.0f}".format(stats.savings_rate) }}%</div>
+                        <div class="stat-meta">Current savings rate</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHARTS & SUGGESTIONS GRID -->
+    <section class="dashboard-grid" aria-label="Charts and AI suggestions">
+        <!-- Charts Column -->
+        <div class="charts-grid" aria-label="Financial charts">
+            <article class="card">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <i class="fas fa-chart-area text-primary" aria-hidden="true"></i>
+                        Monthly Expense Trend
+                    </h3>
+                    <span class="tag-pill">12 Months</span>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="monthlyExpenseChart" aria-label="Monthly expense trend chart" role="img"></canvas>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <i class="fas fa-chart-pie text-success" aria-hidden="true"></i>
+                        Category Spending
+                    </h3>
+                    <span class="tag-pill">Distribution</span>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="categoryChart" aria-label="Spending by category chart" role="img"></canvas>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <i class="fas fa-exchange-alt text-warning" aria-hidden="true"></i>
+                        Income vs Expense
+                    </h3>
+                    <span class="tag-pill">Cashflow</span>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="incomeExpenseChart" aria-label="Income versus expense chart" role="img"></canvas>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="chart-header">
+                    <h3 class="chart-title">
+                        <i class="fas fa-chart-bar text-info" aria-hidden="true"></i>
+                        Spending Distribution
+                    </h3>
+                    <span class="tag-pill">Current</span>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="distributionChart" aria-label="Current spending distribution chart" role="img"></canvas>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Suggestions Column -->
+        <aside aria-label="AI suggestions">
+            <div class="d-flex align-items-center gap-2 section-header">
+                <h2 class="section-title">AI Suggestions</h2>
+                <span class="ai-badge">
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                    Smart Tips
+                </span>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="suggestions-wrapper">
+                        {% if suggestions %}
+                            {% for suggestion in suggestions %}
+                            <div class="suggestion-card {{ suggestion.priority if suggestion.priority else 'low-priority' }}">
+                                <div class="d-flex align-items-start">
+                                    <div class="suggestion-icon">
+                                        <i class="fas fa-{{
+                                            'fire' if suggestion.priority == 'high-priority' else
+                                            'exclamation-triangle' if suggestion.priority == 'medium-priority' else
+                                            'info-circle'
+                                        }}" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-start mb-1">
+                                            <strong class="text-gradient">{{ suggestion.category }}</strong>
+                                            <small class="text-muted">
+                                                {{ suggestion.created_at.strftime('%b %d') if suggestion.created_at else 'Recent' }}
+                                            </small>
+                                        </div>
+                                        <p>{{ suggestion.suggestion_text }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="empty-state">
+                                <div class="empty-state-icon">
+                                    <i class="fas fa-robot" aria-hidden="true"></i>
+                                </div>
+                                <h4>No AI Suggestions Yet</h4>
+                                <p>Add more transactions to unlock personalized AI insights and recommendations.</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+<script>
+function clearUserData() {
+    const confirmed = window.confirm(
+        "This will permanently delete all your dashboard data from DhanaRakshak. Do you want to continue?"
+    );
+    if (!confirmed) return;
+
+    fetch('/api/dashboard/clear', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+    .then(r => r.json())
+    .then(d => {
+        if (d.success) {
+            alert('Data cleared successfully.');
+            window.location.reload();
+        } else {
+            alert('Failed to clear data: ' + (d.error || 'Unknown error'));
+        }
+    })
+    .catch(err => {
+        alert('Network error: ' + err.message);
+    });
+}
+</script>
+{% endblock %}

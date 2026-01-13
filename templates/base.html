@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %}DhanaRakshak – AI Finance Tracker{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Premium Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="fade-in">
+
+<!-- ================= NAVBAR ================= -->
+{% if session.get('user_id') %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid px-4">
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('dashboard.dashboard_page') }}">
+            <i class="fas fa-shield-halved text-info"></i>
+            <span>DhanaRakshak</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('dashboard.dashboard_page') }}">
+                        <i class="fas fa-chart-line me-1"></i> Dashboard
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('dashboard.goals_page') }}">
+                        <i class="fas fa-bullseye me-1"></i> Goals
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('dashboard.financial_qa_page') }}">
+                        <i class="fas fa-robot me-1"></i> AI Assistant
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('upload.upload_page') }}">
+                        <i class="fas fa-cloud-upload-alt me-1"></i> Upload
+                    </a>
+                </li>
+
+                <li class="nav-item d-none d-lg-block">
+                    <span class="nav-link text-info">
+                        <i class="fas fa-user-circle me-1"></i> {{ session.get('username') }}
+                    </span>
+                </li>
+
+                <li class="nav-item">
+                    <a class="btn btn-danger btn-sm ms-lg-2" href="{{ url_for('auth.logout') }}">
+                        <i class="fas fa-right-from-bracket"></i> Logout
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endif %}
+
+<!-- ================= MAIN ================= -->
+<main class="container-fluid pt-5 mt-4">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

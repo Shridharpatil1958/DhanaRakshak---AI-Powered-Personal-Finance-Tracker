@@ -1,0 +1,764 @@
+{% extends "base.html" %}
+{% block title %}Financial Goals – DhanaRakshak{% endblock %}
+
+{% block extra_css %}
+<style>
+* {
+    box-sizing: border-box;
+}
+
+.container-fluid {
+    padding: 1rem 1.5rem !important;
+    max-width: 100%;
+}
+
+/* Page Header */
+.page-header {
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+}
+
+.page-title i {
+    color: #8b5cf6;
+}
+
+.page-subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Stats Cards */
+.goal-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+    border-color: #8b5cf6;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-icon.primary {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.08));
+    color: #7c3aed;
+}
+
+.stat-icon.success {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.08));
+    color: #059669;
+}
+
+.stat-icon.info {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.08));
+    color: #0891b2;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0.25rem 0;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+}
+
+/* Buttons */
+.btn-create-goal {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-create-goal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(139, 92, 246, 0.3);
+}
+
+/* Goals Grid */
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+}
+
+.goal-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.goal-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #8b5cf6, #ec4899);
+}
+
+.goal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.15);
+    border-color: #8b5cf6;
+}
+
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.goal-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 0.25rem 0;
+}
+
+.goal-type {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+    border-radius: 999px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.goal-priority {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.goal-priority.high {
+    background: rgba(244, 63, 94, 0.1);
+    color: #dc2626;
+}
+
+.goal-priority.medium {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+.goal-priority.low {
+    background: rgba(6, 182, 212, 0.1);
+    color: #0891b2;
+}
+
+.goal-amount {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.amount-item {
+    text-align: center;
+}
+
+.amount-label {
+    font-size: 0.7rem;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.amount-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Progress Bar */
+.progress-container {
+    margin-bottom: 0.75rem;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.35rem;
+}
+
+/* Goal Meta */
+.goal-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.goal-date {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* Goal Actions */
+.goal-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-action {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-contribute {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+}
+
+.btn-contribute:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+.btn-details {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.btn-details:hover {
+    background: rgba(139, 92, 246, 0.2);
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    border-radius: 16px 16px 0 0;
+    border: none;
+}
+
+.modal-title {
+    font-weight: 700;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 0.35rem;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 0.6rem 0.9rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.empty-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.08));
+    color: #8b5cf6;
+}
+
+.empty-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.empty-text {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+/* Status Badge */
+.status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.active {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+.status-badge.completed {
+    background: rgba(139, 92, 246, 0.1);
+    color: #7c3aed;
+}
+
+.status-badge.paused {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .goals-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .goal-stats {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid fade-in">
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="page-title">
+                    <i class="fas fa-bullseye me-2"></i>
+                    Financial Goals
+                </h1>
+                <p class="page-subtitle mb-0">
+                    Set, track, and achieve your financial objectives
+                </p>
+            </div>
+            <button class="btn-create-goal" data-bs-toggle="modal" data-bs-target="#createGoalModal">
+                <i class="fas fa-plus me-2"></i>
+                Create Goal
+            </button>
+        </div>
+    </header>
+
+    <!-- Goal Statistics -->
+    <section class="goal-stats" id="goalStats">
+        <div class="stat-card">
+            <div class="stat-icon primary">
+                <i class="fas fa-flag"></i>
+            </div>
+            <div class="stat-label">Total Goals</div>
+            <div class="stat-value" id="totalGoals">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-label">Active Goals</div>
+            <div class="stat-value" id="activeGoals">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon info">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <div class="stat-label">Completed</div>
+            <div class="stat-value" id="completedGoals">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon primary">
+                <i class="fas fa-coins"></i>
+            </div>
+            <div class="stat-label">Total Saved</div>
+            <div class="stat-value" id="totalSaved">₹0</div>
+        </div>
+    </section>
+
+    <!-- Goals Grid -->
+    <section id="goalsContainer">
+        <div class="goals-grid" id="goalsGrid">
+            <!-- Goals will be loaded here -->
+        </div>
+        
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-icon">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <h3 class="empty-title">No Goals Yet</h3>
+            <p class="empty-text">Start your financial journey by creating your first goal!</p>
+            <button class="btn-create-goal" data-bs-toggle="modal" data-bs-target="#createGoalModal">
+                <i class="fas fa-plus me-2"></i>
+                Create Your First Goal
+            </button>
+        </div>
+    </section>
+</div>
+
+<!-- Create Goal Modal -->
+<div class="modal fade" id="createGoalModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-bullseye me-2"></i>
+                    Create New Goal
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createGoalForm">
+                    <div class="mb-3">
+                        <label class="form-label">Goal Name *</label>
+                        <input type="text" class="form-control" name="goal_name" required placeholder="e.g., Emergency Fund">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Goal Type *</label>
+                            <select class="form-select" name="goal_type" required>
+                                <option value="savings">Savings</option>
+                                <option value="debt_payoff">Debt Payoff</option>
+                                <option value="expense_reduction">Expense Reduction</option>
+                                <option value="investment">Investment</option>
+                                <option value="emergency_fund">Emergency Fund</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Priority *</label>
+                            <select class="form-select" name="priority" required>
+                                <option value="high">High</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Target Amount (₹) *</label>
+                            <input type="number" class="form-control" name="target_amount" required min="1" step="0.01" placeholder="50000">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Target Date *</label>
+                            <input type="date" class="form-control" name="target_date" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <input type="text" class="form-control" name="category" placeholder="e.g., Personal, Family, Business">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" name="description" rows="3" placeholder="Describe your goal..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="createGoal()">Create Goal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contribute Modal -->
+<div class="modal fade" id="contributeModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-hand-holding-usd me-2"></i>
+                    Add Contribution
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="contributeForm">
+                    <input type="hidden" id="contributeGoalId" name="goal_id">
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Amount (₹) *</label>
+                        <input type="number" class="form-control" name="amount" required min="1" step="0.01" placeholder="1000">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-control" name="contribution_date" value="">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-control" name="notes" rows="2" placeholder="Optional notes about this contribution"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success" onclick="addContribution()">Add Contribution</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Load goals on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadGoals();
+    
+    // Set today's date as default for contribution
+    document.querySelector('#contributeForm input[name="contribution_date"]').value = new Date().toISOString().split('T')[0];
+    
+    // Set minimum date for goal creation to tomorrow
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    document.querySelector('#createGoalForm input[name="target_date"]').min = tomorrow.toISOString().split('T')[0];
+});
+
+// Load all goals
+async function loadGoals() {
+    try {
+        const response = await fetch('/api/goals/list');
+        const data = await response.json();
+        
+        if (data.success) {
+            updateStats(data.stats);
+            renderGoals(data.goals);
+        }
+    } catch (error) {
+        console.error('Error loading goals:', error);
+    }
+}
+
+// Update statistics
+function updateStats(stats) {
+    document.getElementById('totalGoals').textContent = stats.total_goals || 0;
+    document.getElementById('activeGoals').textContent = stats.active_goals || 0;
+    document.getElementById('completedGoals').textContent = stats.completed_goals || 0;
+    document.getElementById('totalSaved').textContent = '₹' + (stats.total_saved || 0).toLocaleString('en-IN');
+}
+
+// Render goals
+function renderGoals(goals) {
+    const grid = document.getElementById('goalsGrid');
+    const emptyState = document.getElementById('emptyState');
+    
+    if (!goals || goals.length === 0) {
+        grid.style.display = 'none';
+        emptyState.style.display = 'block';
+        return;
+    }
+    
+    grid.style.display = 'grid';
+    emptyState.style.display = 'none';
+    
+    grid.innerHTML = goals.map(goal => `
+        <div class="goal-card">
+            <span class="status-badge ${goal.status}">${goal.status}</span>
+            
+            <div class="goal-header">
+                <div>
+                    <h3 class="goal-title">${goal.goal_name}</h3>
+                    <span class="goal-type">${goal.goal_type.replace('_', ' ')}</span>
+                </div>
+                <span class="goal-priority ${goal.priority}">${goal.priority}</span>
+            </div>
+            
+            <div class="goal-amount">
+                <div class="amount-item">
+                    <div class="amount-label">Target</div>
+                    <div class="amount-value">₹${parseFloat(goal.target_amount).toLocaleString('en-IN')}</div>
+                </div>
+                <div class="amount-item">
+                    <div class="amount-label">Saved</div>
+                    <div class="amount-value">₹${parseFloat(goal.total_contributed || 0).toLocaleString('en-IN')}</div>
+                </div>
+                <div class="amount-item">
+                    <div class="amount-label">Remaining</div>
+                    <div class="amount-value">₹${(parseFloat(goal.target_amount) - parseFloat(goal.total_contributed || 0)).toLocaleString('en-IN')}</div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" style="width: ${goal.progress_percentage || 0}%"></div>
+                </div>
+                <div class="progress-text">
+                    <span>${goal.progress_percentage || 0}% Complete</span>
+                    <span>${goal.days_remaining > 0 ? goal.days_remaining + ' days left' : 'Overdue'}</span>
+                </div>
+            </div>
+            
+            <div class="goal-meta">
+                <div class="goal-date">
+                    <i class="fas fa-calendar"></i>
+                    <span>Target: ${new Date(goal.target_date).toLocaleDateString('en-IN')}</span>
+                </div>
+                <div class="goal-actions">
+                    ${goal.status === 'active' ? `
+                        <button class="btn-action btn-contribute" onclick="openContributeModal(${goal.id})">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    ` : ''}
+                    <button class="btn-action btn-details" onclick="viewGoalDetails(${goal.id})">
+                        <i class="fas fa-eye"></i> Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Create new goal
+async function createGoal() {
+    const form = document.getElementById('createGoalForm');
+    const formData = new FormData(form);
+    
+    try {
+        const response = await fetch('/api/goals/create', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert(data.message);
+            bootstrap.Modal.getInstance(document.getElementById('createGoalModal')).hide();
+            form.reset();
+            loadGoals();
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error('Error creating goal:', error);
+        alert('Error creating goal. Please try again.');
+    }
+}
+
+// Open contribute modal
+function openContributeModal(goalId) {
+    document.getElementById('contributeGoalId').value = goalId;
+    new bootstrap.Modal(document.getElementById('contributeModal')).show();
+}
+
+// Add contribution
+async function addContribution() {
+    const form = document.getElementById('contributeForm');
+    const formData = new FormData(form);
+    const goalId = document.getElementById('contributeGoalId').value;
+    
+    try {
+        const response = await fetch(`/api/goals/${goalId}/contribute`, {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert(data.message);
+            bootstrap.Modal.getInstance(document.getElementById('contributeModal')).hide();
+            form.reset();
+            loadGoals();
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error('Error adding contribution:', error);
+        alert('Error adding contribution. Please try again.');
+    }
+}
+
+// View goal details
+function viewGoalDetails(goalId) {
+    window.location.href = `/goal/${goalId}`;
+}
+</script>
+{% endblock %}
