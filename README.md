@@ -3,14 +3,14 @@ A complete, production-ready AI-powered personal finance tracking application bu
 
 📸 Application Screenshots
 
-🔐 Authentication – Login Page
-Secure User Login Interface
-:- Allows registered users to securely log in using encrypted credentials with session-based authentication.
-<img width="1862" height="879" alt="Screenshot 2025-12-15 204245" src="https://github.com/user-attachments/assets/b3c7ba92-6bb3-4430-9572-731a2f8146df" />
-
 📝 Authentication – Registration Page
 New User Registration System
 :- Enables users to create accounts with validated inputs, password hashing, and secure data storage.
+<img width="1862" height="879" alt="Screenshot 2025-12-15 204245" src="https://github.com/user-attachments/assets/b3c7ba92-6bb3-4430-9572-731a2f8146df" />
+
+🔐 Authentication – Login Page
+Secure User Login Interface
+:- Allows registered users to securely log in using encrypted credentials with session-based authentication.
 <img width="1870" height="917" alt="Screenshot 2025-12-15 204219" src="https://github.com/user-attachments/assets/cdb2f6b6-68ce-4153-af85-9218dd81e2ae" />
 
 📤 User Financial Data Upload Page
@@ -364,6 +364,7 @@ Personalized insights and recommendations
 ## 📄 License
 
 This project is created for educational and demonstration purposes.
+
 
 
 
