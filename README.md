@@ -1,12 +1,41 @@
+**DhanaRakshak AI - Powered Personal Finance Tracker 💰📊**
 A complete, production-ready AI-powered personal finance tracking application built with Flask, MySQL, and Machine Learning.
 
-**Happy Financial Tracking! 💰📊**
+📸 Application Screenshots
+
+🔐 Authentication – Login Page
+Secure User Login Interface
+:- Allows registered users to securely log in using encrypted credentials with session-based authentication.
 <img width="1862" height="879" alt="Screenshot 2025-12-15 204245" src="https://github.com/user-attachments/assets/b3c7ba92-6bb3-4430-9572-731a2f8146df" />
+
+📝 Authentication – Registration Page
+New User Registration System
+:- Enables users to create accounts with validated inputs, password hashing, and secure data storage.
 <img width="1870" height="917" alt="Screenshot 2025-12-15 204219" src="https://github.com/user-attachments/assets/cdb2f6b6-68ce-4153-af85-9218dd81e2ae" />
+
+📤 User Financial Data Upload Page
+Income & Expense Data Upload
+:- Supports CSV/Excel uploads and manual entry of income and expense data for accurate financial analysis.
 <img width="1864" height="922" alt="Screenshot 2025-12-15 204311" src="https://github.com/user-attachments/assets/5b2e78f7-5d31-4a89-9134-82b8ca0c91fa" />
+
+🎯 Goal Upload Page
+Financial Goal Setup Interface
+:- Allows users to define financial goals such as savings targets, timelines, and priority levels for AI-based planning.
 <img width="1897" height="893" alt="Screenshot 2026-01-07 135508" src="https://github.com/user-attachments/assets/63190242-5263-40fd-b4b9-1e7974eecef7" />
+
+📊 Goal Dashboard
+Goal Tracking & Progress Dashboard
+:- Visualizes goal progress, completion percentage, and projected achievement timelines using real-time analytics.
 <img width="1890" height="908" alt="image" src="https://github.com/user-attachments/assets/c054d1e5-f3d2-4660-a3e4-e6b5795fee5f" />
+
+🤖 AI Financial Assistant
+AI-Powered Financial Assistant
+:- Provides personalized financial advice, spending insights, goal recommendations, and predictive guidance using machine learning models.
 <img width="1912" height="916" alt="Screenshot 2026-01-08 143828" src="https://github.com/user-attachments/assets/d02086bf-7c5e-4484-8eb1-40d17cc317b7" />
+
+📈 Income vs Expense Dashboard
+Income vs Expense Analysis Dashboard
+:- Displays comparative insights between income and expenses using interactive charts to help users manage cash flow effectively.
 <img width="1886" height="913" alt="Screenshot 2025-12-15 204334" src="https://github.com/user-attachments/assets/c86ea462-b23c-44ed-91e5-78449292673c" />
 <img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/cccfb3f3-b3fe-43a6-90bc-df046db3671d" />
 
@@ -335,6 +364,7 @@ Personalized insights and recommendations
 ## 📄 License
 
 This project is created for educational and demonstration purposes.
+
 
 
 
