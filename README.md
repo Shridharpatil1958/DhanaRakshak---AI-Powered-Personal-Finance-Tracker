@@ -324,20 +324,6 @@ date,amount,category,transaction_type,merchant,payment_mode
 - Automated bank statement parsing
 - Social comparison features
 
-## 📸 Screenshots
-
-### Login Page
-Clean and secure authentication interface
-
-### Dashboard
-Interactive visualizations with real-time data
-
-### AI Predictions
-Machine learning powered financial forecasts
-
-### AI Suggestions
-Personalized insights and recommendations
-
 ## 🎓 Technical Details
 
 ### Database Schema
@@ -364,6 +350,7 @@ Personalized insights and recommendations
 ## 📄 License
 
 This project is created for educational and demonstration purposes.
+
 
 
 
