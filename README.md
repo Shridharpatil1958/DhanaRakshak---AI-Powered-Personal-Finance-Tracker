@@ -1,360 +1,592 @@
-**DhanaRakshak AI - Powered Personal Finance Tracker 💰📊**
-A complete, production-ready AI-powered personal finance tracking application built with Flask, MySQL, and Machine Learning.
+# 💰 DhanaRakshak AI – Personal Finance Tracker
 
-📸 Application Screenshots
+<div align="center">
 
-📝 Authentication – Registration Page
-New User Registration System
-:- Enables users to create accounts with validated inputs, password hashing, and secure data storage.
-<img width="1862" height="879" alt="Screenshot 2025-12-15 204245" src="https://github.com/user-attachments/assets/b3c7ba92-6bb3-4430-9572-731a2f8146df" />
+# 🤖 AI-Powered Personal Finance Management System
 
-🔐 Authentication – Login Page
-Secure User Login Interface
-:- Allows registered users to securely log in using encrypted credentials with session-based authentication.
-<img width="1870" height="917" alt="Screenshot 2025-12-15 204219" src="https://github.com/user-attachments/assets/cdb2f6b6-68ce-4153-af85-9218dd81e2ae" />
+### Track Expenses • Predict Savings • Achieve Financial Goals
 
-📤 User Financial Data Upload Page
-Income & Expense Data Upload
-:- Supports CSV/Excel uploads and manual entry of income and expense data for accurate financial analysis.
-<img width="1864" height="922" alt="Screenshot 2025-12-15 204311" src="https://github.com/user-attachments/assets/5b2e78f7-5d31-4a89-9134-82b8ca0c91fa" />
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge&logo=flask)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql)
+![Scikit-Learn](https://img.shields.io/badge/Machine%20Learning-ScikitLearn-F7931E?style=for-the-badge&logo=scikitlearn)
+![Chart.js](https://img.shields.io/badge/Chart.js-Visualization-FF6384?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-🎯 Goal Upload Page
-Financial Goal Setup Interface
-:- Allows users to define financial goals such as savings targets, timelines, and priority levels for AI-based planning.
-<img width="1897" height="893" alt="Screenshot 2026-01-07 135508" src="https://github.com/user-attachments/assets/63190242-5263-40fd-b4b9-1e7974eecef7" />
+</div>
 
-📊 Goal Dashboard
-Goal Tracking & Progress Dashboard
-:- Visualizes goal progress, completion percentage, and projected achievement timelines using real-time analytics.
-<img width="1890" height="908" alt="image" src="https://github.com/user-attachments/assets/c054d1e5-f3d2-4660-a3e4-e6b5795fee5f" />
+---
 
-🤖 AI Financial Assistant
-AI-Powered Financial Assistant
-:- Provides personalized financial advice, spending insights, goal recommendations, and predictive guidance using machine learning models.
-<img width="1912" height="916" alt="Screenshot 2026-01-08 143828" src="https://github.com/user-attachments/assets/d02086bf-7c5e-4484-8eb1-40d17cc317b7" />
+# 🌟 Project Overview
 
-📈 Income vs Expense Dashboard
-Income vs Expense Analysis Dashboard
-:- Displays comparative insights between income and expenses using interactive charts to help users manage cash flow effectively.
-<img width="1886" height="913" alt="Screenshot 2025-12-15 204334" src="https://github.com/user-attachments/assets/c86ea462-b23c-44ed-91e5-78449292673c" />
-<img width="1883" height="909" alt="Screenshot 2025-12-15 204351" src="https://github.com/user-attachments/assets/cccfb3f3-b3fe-43a6-90bc-df046db3671d" />
+**DhanaRakshak AI** is a complete AI-powered personal finance management platform that helps users monitor expenses, predict future financial trends, set savings goals, and receive intelligent financial recommendations.
 
+The application combines:
 
-## 🎯 Features
+✅ Personal Finance Tracking
 
-### Core Functionality
-- **User Authentication**: Secure registration and login with password hashing
-- **Data Upload**: Multiple upload options (CSV, Excel, Manual Entry)
-- **AI Predictions**: 
-  - Next month expense prediction
-  - Monthly savings prediction
-  - Upcoming bills estimation
-  - Anomaly detection
-  - Budget recommendations
-- **Interactive Dashboard**: Real-time visualizations with Chart.js
-- **AI-Powered Suggestions**: Personalized financial insights and recommendations
+✅ Machine Learning Predictions
 
-### Technical Features
-- **Backend**: Python Flask with RESTful APIs
-- **Database**: MySQL with proper schema design
-- **ML Models**: 5 trained models using Scikit-Learn
-- **Frontend**: Bootstrap 5 with responsive design
-- **Security**: Password hashing, session management, input validation
+✅ Financial Goal Management
 
-## 📋 Prerequisites
+✅ Interactive Dashboards
 
-- Python 3.8 or higher
-- MySQL 8.0 or higher
-- pip (Python package manager)
+✅ AI-Powered Financial Assistant
 
-## 🚀 Installation & Setup
+✅ Secure Authentication System
 
-### 1. Clone or Download the Project
+---
+
+# 🎯 Business Problem
+
+Managing personal finances can be challenging due to:
+
+- Uncontrolled spending
+- Lack of savings planning
+- Difficulty tracking expenses
+- Poor budgeting decisions
+- No future financial forecasting
+
+DhanaRakshak AI solves these problems by providing intelligent insights and predictive analytics.
+
+---
+
+# 📸 Application Screenshots
+
+## 📝 User Registration
+
+### Secure Account Creation
+
+Features:
+
+- Input Validation
+- Password Hashing
+- Secure User Registration
+
+<img width="100%" src="https://github.com/user-attachments/assets/b3c7ba92-6bb3-4430-9572-731a2f8146df" />
+
+---
+
+## 🔐 User Login
+
+### Secure Authentication System
+
+Features:
+
+- Session Management
+- Encrypted Credentials
+- Secure Login Access
+
+<img width="100%" src="https://github.com/user-attachments/assets/cdb2f6b6-68ce-4153-af85-9218dd81e2ae" />
+
+---
+
+## 📤 Financial Data Upload
+
+### Income & Expense Upload Interface
+
+Users can:
+
+- Upload CSV Files
+- Upload Excel Files
+- Add Transactions Manually
+
+<img width="100%" src="https://github.com/user-attachments/assets/5b2e78f7-5d31-4a89-9134-82b8ca0c91fa" />
+
+---
+
+## 🎯 Goal Setup Module
+
+### Financial Goal Planning
+
+Users can define:
+
+- Savings Targets
+- Time Duration
+- Priority Levels
+
+<img width="100%" src="https://github.com/user-attachments/assets/63190242-5263-40fd-b4b9-1e7974eecef7" />
+
+---
+
+## 📊 Goal Dashboard
+
+### Goal Progress Tracking
+
+Features:
+
+- Goal Completion %
+- Savings Progress
+- Estimated Achievement Date
+
+<img width="100%" src="https://github.com/user-attachments/assets/c054d1e5-f3d2-4660-a3e4-e6b5795fee5f" />
+
+---
+
+## 🤖 AI Financial Assistant
+
+### Personalized Financial Recommendations
+
+Features:
+
+- Spending Insights
+- Budget Suggestions
+- Savings Recommendations
+- Predictive Financial Advice
+
+<img width="100%" src="https://github.com/user-attachments/assets/d02086bf-7c5e-4484-8eb1-40d17cc317b7" />
+
+---
+
+## 📈 Income vs Expense Dashboard
+
+### Interactive Financial Analytics
+
+Features:
+
+- Income Analysis
+- Expense Tracking
+- Cash Flow Monitoring
+- Category-wise Spending
+
+<img width="100%" src="https://github.com/user-attachments/assets/c86ea462-b23c-44ed-91e5-78449292673c" />
+
+<br>
+
+<img width="100%" src="https://github.com/user-attachments/assets/cccfb3f3-b3fe-43a6-90bc-df046db3671d" />
+
+---
+
+# 🚀 Key Features
+
+## 🔐 Authentication System
+
+- User Registration
+- Secure Login
+- Password Hashing using Bcrypt
+- Session Management
+
+---
+
+## 📊 Financial Tracking
+
+- Expense Tracking
+- Income Monitoring
+- Budget Management
+- Transaction History
+
+---
+
+## 🎯 Goal Management
+
+- Create Financial Goals
+- Track Goal Progress
+- Savings Monitoring
+- Achievement Predictions
+
+---
+
+## 🤖 AI Features
+
+### Smart Predictions
+
+- Next Month Expense Prediction
+- Monthly Savings Prediction
+- Upcoming Bills Estimation
+- Budget Recommendations
+- Spending Anomaly Detection
+
+---
+
+# 📂 Project Structure
 
 ```bash
-cd dhanarakshak
+DhanaRakshak-AI/
+│
+├── app.py
+├── config.py
+├── requirements.txt
+│
+├── database/
+│   └── schema.sql
+│
+├── ml/
+│   ├── train_models.py
+│   ├── expense_predictor.py
+│   ├── savings_predictor.py
+│   ├── anomaly_detector.py
+│   └── budget_recommender.py
+│
+├── models/
+│   ├── expense_predictor.pkl
+│   ├── savings_predictor.pkl
+│   ├── bills_estimator.pkl
+│   ├── anomaly_detector.pkl
+│   └── budget_recommender.pkl
+│
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── images/
+│
+├── templates/
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   ├── upload.html
+│   ├── goals.html
+│   └── assistant.html
+│
+├── uploads/
+│
+└── README.md
 ```
 
-### 2. Install Python Dependencies
+---
+
+# 🔄 Application Workflow
+
+```text
+User Registration
+        ↓
+User Login
+        ↓
+Upload Financial Data
+        ↓
+Data Processing
+        ↓
+Machine Learning Analysis
+        ↓
+Predictions & Recommendations
+        ↓
+Dashboard Visualization
+        ↓
+Goal Tracking & Monitoring
+```
+
+---
+
+# 🤖 Machine Learning Models
+
+## Expense Prediction
+
+### Algorithm
+
+```python
+Random Forest Regressor
+```
+
+Purpose:
+
+- Predict future monthly expenses
+
+---
+
+## Savings Prediction
+
+### Algorithm
+
+```python
+Linear Regression
+```
+
+Purpose:
+
+- Forecast future savings
+
+---
+
+## Bills Estimation
+
+### Algorithm
+
+```python
+Random Forest Regressor
+```
+
+Purpose:
+
+- Estimate upcoming bills
+
+---
+
+## Anomaly Detection
+
+### Algorithm
+
+```python
+Isolation Forest
+```
+
+Purpose:
+
+- Detect unusual spending patterns
+
+---
+
+## Budget Recommendation
+
+### Algorithm
+
+```python
+Random Forest Regressor
+```
+
+Purpose:
+
+- Recommend category-wise budget allocation
+
+---
+
+# 📊 Dashboard Analytics
+
+### Financial KPIs
+
+- Total Income
+- Total Expenses
+- Net Savings
+- Savings Rate
+
+### AI Insights
+
+- Future Expense Forecast
+- Budget Recommendations
+- Goal Achievement Probability
+- Spending Risk Analysis
+
+---
+
+# 📋 Dataset Format
+
+Required Columns:
+
+```csv
+date,amount,category
+```
+
+Optional Columns:
+
+```csv
+transaction_type
+merchant
+payment_mode
+description
+```
+
+Example:
+
+```csv
+date,amount,category,transaction_type
+2024-01-15,500,Food,expense
+2024-01-20,50000,Salary,income
+2024-01-25,2000,Shopping,expense
+```
+
+---
+
+# 🛠️ Technologies Used
+
+| Category | Technologies |
+|-----------|-------------|
+| Backend | Flask |
+| Frontend | HTML, CSS, Bootstrap 5 |
+| Database | MySQL |
+| Machine Learning | Scikit-Learn |
+| Data Analysis | Pandas, NumPy |
+| Visualization | Chart.js |
+| Authentication | Bcrypt |
+
+---
+
+# 🔒 Security Features
+
+### Authentication Security
+
+- Password Hashing
+- Session Management
+- Input Validation
+
+### Database Security
+
+- Parameterized Queries
+- SQL Injection Protection
+
+### Application Security
+
+- Error Handling
+- Secure Cookie Sessions
+- User Access Control
+
+---
+
+# 📡 REST API Endpoints
+
+## Authentication
+
+```http
+POST /register
+POST /login
+GET /logout
+```
+
+## Dashboard
+
+```http
+GET /dashboard
+GET /api/dashboard/data
+```
+
+## Predictions
+
+```http
+POST /api/predict/expenses
+POST /api/predict/savings
+POST /api/predict/bills
+POST /api/detect/anomalies
+POST /api/recommend/budget
+```
+
+---
+
+# 📈 Business Impact
+
+DhanaRakshak AI helps users:
+
+✅ Track Personal Finances
+
+✅ Improve Savings Habits
+
+✅ Detect Overspending
+
+✅ Plan Financial Goals
+
+✅ Forecast Future Expenses
+
+✅ Make Data-Driven Financial Decisions
+
+---
+
+# 🚀 Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/yourusername/DhanaRakshak-AI.git
+```
+
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Set Up MySQL Database
-
-#### Option A: Using MySQL Command Line
-
-```bash
-mysql -u root -p
-```
-
-Then create the database:
+## Configure MySQL
 
 ```sql
 CREATE DATABASE dhanarakshak;
-EXIT;
 ```
 
-#### Option B: Using MySQL Workbench
-
-1. Open MySQL Workbench
-2. Connect to your MySQL server
-3. Create a new database named `dhanarakshak`
-
-### 4. Configure Database Connection
-
-Edit `config.py` and update the MySQL credentials:
-
-```python
-MYSQL_HOST = 'localhost'
-MYSQL_USER = 'your_mysql_username'
-MYSQL_PASSWORD = 'your_mysql_password'
-MYSQL_DATABASE = 'dhanarakshak'
-MYSQL_PORT = 3306
-```
-
-### 5. Train ML Models
-
-Generate synthetic data and train all ML models:
+## Train Models
 
 ```bash
-cd ml
-python train_models.py
-cd ..
+python ml/train_models.py
 ```
 
-This will:
-- Generate a synthetic financial dataset
-- Train 5 ML models (Expense Predictor, Savings Predictor, Bills Estimator, Anomaly Detector, Budget Recommender)
-- Save trained models in the `models/` directory
-
-Expected output:
-```
-==================================================
-DhanaRakshak ML Model Training
-==================================================
-
-Generating synthetic dataset...
-Dataset generated: synthetic_finance_data.csv
-Total records: 20000
-
-Training Models...
-==================================================
-
-✓ Expense Predictor trained (Score: 0.XXX)
-✓ Savings Predictor trained (Score: 0.XXX)
-✓ Bills Estimator trained (Score: 0.XXX)
-✓ Anomaly Detector trained
-✓ Budget Recommender trained (Score: 0.XXX)
-
-==================================================
-✓ All models trained successfully!
-==================================================
-```
-
-### 6. Run the Application
+## Run Application
 
 ```bash
 python app.py
 ```
 
-The application will be available at: `http://localhost:5000`
+Open:
 
-## 📊 Using the Application
-
-### 1. Register a New Account
-- Navigate to `http://localhost:5000`
-- Click "Register here"
-- Fill in username, email, and password
-- Submit the form
-
-### 2. Upload Financial Data
-
-#### Option A: Upload CSV/Excel File
-- Click "Upload Data" in the navigation
-- Select file type (CSV or Excel)
-- Choose your file (must contain: date, amount, category columns)
-- Click "Upload File"
-
-#### Option B: Manual Entry
-- Click "Upload Data"
-- Fill in the manual entry form
-- Select date, type, amount, category, etc.
-- Click "Add Transaction"
-
-#### Option C: Use Provided Dataset
-- Use the provided `dhanarakshak_large_dataset.csv` file
-- Upload it through the web interface
-
-### 3. View Dashboard
-- After uploading data, you'll be redirected to the dashboard
-- View statistics, predictions, visualizations, and AI suggestions
-
-### 4. Get AI Predictions
-- Click prediction buttons to get:
-  - Next month expense forecast
-  - Monthly savings prediction
-  - Upcoming bills estimation
-  - Anomaly detection results
-
-
-## 🔒 Security Features
-
-- **Password Hashing**: Using bcrypt for secure password storage
-- **Session Management**: Flask sessions with secure cookies
-- **Input Validation**: Server-side validation for all inputs
-- **SQL Injection Protection**: Parameterized queries
-- **CSRF Protection**: Built-in Flask security
-- **Error Handling**: Comprehensive error handling
-
-## 🤖 Machine Learning Models
-
-### 1. Expense Prediction Model
-- **Algorithm**: Random Forest Regressor
-- **Purpose**: Predict next month's total expenses
-- **Features**: Month, day of week, category, user patterns
-
-### 2. Savings Prediction Model
-- **Algorithm**: Linear Regression
-- **Purpose**: Predict monthly savings
-- **Features**: Income, expenses, historical trends
-
-### 3. Bills Estimation Model
-- **Algorithm**: Random Forest Regressor
-- **Purpose**: Estimate upcoming bills
-- **Features**: Bill category, historical amounts, payment patterns
-
-### 4. Anomaly Detection Model
-- **Algorithm**: Isolation Forest
-- **Purpose**: Detect unusual spending behavior
-- **Features**: Transaction amount, category statistics
-
-### 5. Budget Recommendation Model
-- **Algorithm**: Random Forest Regressor
-- **Purpose**: Suggest optimal category-wise budgets
-- **Features**: Total expenses, category patterns, user behavior
-
-## 📊 API Endpoints
-
-### Authentication
-- `POST /register` - User registration
-- `POST /login` - User login
-- `GET /logout` - User logout
-
-### Data Upload
-- `GET /upload` - Upload page
-- `POST /upload` - Process uploaded data
-
-### Dashboard
-- `GET /dashboard` - Dashboard page
-- `GET /api/dashboard/data` - Get visualization data
-
-### ML Predictions
-- `POST /api/predict/expenses` - Predict next month expenses
-- `POST /api/predict/savings` - Predict monthly savings
-- `POST /api/predict/bills` - Estimate upcoming bills
-- `POST /api/detect/anomalies` - Detect anomalous transactions
-- `POST /api/recommend/budget` - Get budget recommendations
-
-## 🎨 Dashboard Visualizations
-
-1. **Monthly Expenses Trend**: Line chart showing expense trends over time
-2. **Category-wise Spending**: Pie chart of spending by category
-3. **Income vs Expense**: Bar chart comparing income and expenses
-4. **Spending Distribution**: Histogram of transaction amounts
-
-## 🔧 Troubleshooting
-
-### Database Connection Error
-```
-Error: Can't connect to MySQL server
-```
-**Solution**: Check MySQL credentials in `config.py` and ensure MySQL service is running
-
-### Models Not Found
-```
-Model not found: models/expense_predictor.pkl
-```
-**Solution**: Run `python ml/train_models.py` to train models
-
-### Import Errors
-```
-ModuleNotFoundError: No module named 'flask'
-```
-**Solution**: Install dependencies with `pip install -r requirements.txt`
-
-### Port Already in Use
-```
-Address already in use
-```
-**Solution**: Change port in `app.py` or kill the process using port 5000
-
-## 📝 Dataset Format
-
-Your CSV/Excel file should have these columns:
-
-**Required:**
-- `date` - Transaction date (YYYY-MM-DD)
-- `amount` - Transaction amount (numeric)
-- `category` - Expense category (Food, Rent, Bills, etc.)
-
-**Optional:**
-- `transaction_type` - income or expense (default: expense)
-- `merchant` - Merchant name (default: Unknown)
-- `payment_mode` - UPI, Credit Card, etc. (default: Other)
-- `description` - Additional notes
-
-**Example:**
-```csv
-date,amount,category,transaction_type,merchant,payment_mode
-2024-01-15,500,Food,expense,Swiggy,UPI
-2024-01-20,50000,Salary,income,Company,Bank Transfer
-2024-01-25,2000,Shopping,expense,Amazon,Credit Card
+```text
+http://localhost:5000
 ```
 
-## 🌟 Future Enhancements
+---
 
-- Goal setting and tracking
-- Investment portfolio tracking
-- Bill payment reminders
-- Export reports to PDF
-- Mobile app integration
-- Multi-currency support
-- Automated bank statement parsing
-- Social comparison features
+# 🔮 Future Enhancements
 
-## 🎓 Technical Details
+### Finance Features
 
-### Database Schema
-- **users**: User accounts with hashed passwords
-- **transactions**: All financial transactions
-- **predictions**: ML model predictions
-- **ai_suggestions**: Generated AI insights
-- **user_budgets**: Budget allocations
+- Investment Portfolio Tracking
+- Loan Management
+- Credit Score Monitoring
+- Bill Payment Reminders
 
-### ML Pipeline
-1. Data preprocessing and cleaning
-2. Feature engineering
-3. Model training with cross-validation
-4. Model evaluation and selection
-5. Prediction serving via REST APIs
+### AI Enhancements
 
-### Security Measures
-- Bcrypt password hashing with salt
-- Session-based authentication
-- Input sanitization
-- Parameterized SQL queries
-- HTTPS ready (configure with SSL certificates)
+- LLM-Based Financial Advisor
+- Personalized Wealth Planning
+- Spending Habit Analysis
 
-## 📄 License
+### Deployment
 
-This project is created for educational and demonstration purposes.
+- Docker Support
+- AWS Deployment
+- Mobile Application
 
+---
 
+# 🏆 Skills Demonstrated
 
+### Data Science
 
+- Machine Learning
+- Predictive Analytics
+- Anomaly Detection
 
+### Software Development
 
+- Flask Development
+- REST APIs
+- Database Design
 
+### Analytics
 
+- Data Visualization
+- Financial Analytics
+- KPI Monitoring
+
+### AI
+
+- Recommendation Systems
+- Forecasting Models
+- Intelligent Insights
+
+---
+
+# 👨‍💻 Author
+
+## Shridhar Patil
+
+🎓 Computer Science Engineer
+
+📊 Data Analyst | Data Science Enthusiast
+
+📧 shridharpatil0513@gmail.com
+
+🐙 GitHub: https://github.com/Shridharpatil1958
+
+---
+
+# ⭐ Support
+
+If you found this project useful:
+
+⭐ Star the Repository
+
+🍴 Fork the Project
+
+📢 Share with Others
+
+---
+
+<div align="center">
+
+### 💰 Empowering Smarter Financial Decisions Through AI
+
+Made with ❤️ by Shridhar Patil
+
+</div>
