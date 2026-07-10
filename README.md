@@ -1,8 +1,6 @@
-# 💰 DhanaRakshak AI – Personal Finance Tracker
-
 <div align="center">
 
-# 🤖 AI-Powered Personal Finance Management System
+# 💰 DhanaRakshak AI-Powered Personal Finance Management System
 
 ### Track Expenses • Predict Savings • Achieve Financial Goals
 
